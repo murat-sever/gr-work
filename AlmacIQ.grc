@@ -93,7 +93,7 @@
     </param>
     <param>
       <key>_coordinate</key>
-      <value>(224, 4)</value>
+      <value>(8, 124)</value>
     </param>
     <param>
       <key>_rotation</key>
@@ -132,7 +132,7 @@
     </param>
     <param>
       <key>_coordinate</key>
-      <value>(456, 296)</value>
+      <value>(416, 264)</value>
     </param>
     <param>
       <key>_rotation</key>
@@ -269,15 +269,15 @@
     </param>
     <param>
       <key>_enabled</key>
-      <value>0</value>
+      <value>1</value>
     </param>
     <param>
       <key>file</key>
-      <value>10Mcenter_40koffset_4ktoneAM.bin</value>
+      <value>iq_10Mcenter_AM440Hztone.bin</value>
     </param>
     <param>
       <key>_coordinate</key>
-      <value>(136, 660)</value>
+      <value>(216, 524)</value>
     </param>
     <param>
       <key>_rotation</key>
@@ -290,6 +290,57 @@
     <param>
       <key>type</key>
       <value>int</value>
+    </param>
+    <param>
+      <key>unbuffered</key>
+      <value>False</value>
+    </param>
+    <param>
+      <key>vlen</key>
+      <value>1</value>
+    </param>
+  </block>
+  <block>
+    <key>blocks_file_sink</key>
+    <param>
+      <key>append</key>
+      <value>False</value>
+    </param>
+    <param>
+      <key>alias</key>
+      <value></value>
+    </param>
+    <param>
+      <key>comment</key>
+      <value></value>
+    </param>
+    <param>
+      <key>affinity</key>
+      <value></value>
+    </param>
+    <param>
+      <key>_enabled</key>
+      <value>True</value>
+    </param>
+    <param>
+      <key>file</key>
+      <value>iq_10Mcenter_AM440Hztone.gc32</value>
+    </param>
+    <param>
+      <key>_coordinate</key>
+      <value>(800, 516)</value>
+    </param>
+    <param>
+      <key>_rotation</key>
+      <value>180</value>
+    </param>
+    <param>
+      <key>id</key>
+      <value>blocks_file_sink_1</value>
+    </param>
+    <param>
+      <key>type</key>
+      <value>complex</value>
     </param>
     <param>
       <key>unbuffered</key>
@@ -457,7 +508,7 @@
     </param>
     <param>
       <key>_coordinate</key>
-      <value>(280, 308)</value>
+      <value>(232, 276)</value>
     </param>
     <param>
       <key>_rotation</key>
@@ -508,7 +559,7 @@
     </param>
     <param>
       <key>_coordinate</key>
-      <value>(24, 312)</value>
+      <value>(8, 256)</value>
     </param>
     <param>
       <key>_rotation</key>
@@ -575,7 +626,7 @@
     </param>
     <param>
       <key>fc</key>
-      <value>0</value>
+      <value>10000000</value>
     </param>
     <param>
       <key>comment</key>
@@ -599,7 +650,7 @@
     </param>
     <param>
       <key>_coordinate</key>
-      <value>(1088, 316)</value>
+      <value>(1088, 252)</value>
     </param>
     <param>
       <key>gui_hint</key>
@@ -854,7 +905,7 @@
     <key>qtgui_time_sink_x</key>
     <param>
       <key>autoscale</key>
-      <value>True</value>
+      <value>False</value>
     </param>
     <param>
       <key>axislabels</key>
@@ -886,7 +937,7 @@
     </param>
     <param>
       <key>_coordinate</key>
-      <value>(1040, 180)</value>
+      <value>(1088, 132)</value>
     </param>
     <param>
       <key>gui_hint</key>
@@ -1206,11 +1257,11 @@
     </param>
     <param>
       <key>ymax</key>
-      <value>1</value>
+      <value>100</value>
     </param>
     <param>
       <key>ymin</key>
-      <value>-1</value>
+      <value>-100</value>
     </param>
   </block>
   <connection>
@@ -1234,6 +1285,12 @@
   <connection>
     <source_block_id>blocks_endian_swap_1</source_block_id>
     <sink_block_id>blocks_int_to_float_1</sink_block_id>
+    <source_key>0</source_key>
+    <sink_key>0</sink_key>
+  </connection>
+  <connection>
+    <source_block_id>blocks_float_to_complex_0</source_block_id>
+    <sink_block_id>blocks_file_sink_1</sink_block_id>
     <source_key>0</source_key>
     <sink_key>0</sink_key>
   </connection>
