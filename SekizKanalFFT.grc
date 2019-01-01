@@ -1,7 +1,7 @@
 <?xml version='1.0' encoding='utf-8'?>
 <?grc format='1' created='3.7.9'?>
 <flow_graph>
-  <timestamp>Sat Dec 22 06:11:01 2018</timestamp>
+  <timestamp>Tue Jan  1 23:08:31 2019</timestamp>
   <block>
     <key>options</key>
     <param>
@@ -22,7 +22,7 @@
     </param>
     <param>
       <key>description</key>
-      <value>Cok kanal veriden istenilen kanali secer</value>
+      <value></value>
     </param>
     <param>
       <key>_enabled</key>
@@ -46,7 +46,7 @@
     </param>
     <param>
       <key>id</key>
-      <value>AlmacFFTKanal</value>
+      <value>SekizKanalFFT</value>
     </param>
     <param>
       <key>max_nouts</key>
@@ -78,7 +78,7 @@
     </param>
     <param>
       <key>title</key>
-      <value>FFT Kanal Secici</value>
+      <value>8 Kanal FFT</value>
     </param>
   </block>
   <block>
@@ -109,14 +109,10 @@
     </param>
   </block>
   <block>
-    <key>blocks_deinterleave</key>
+    <key>AlmacFFTKanal</key>
     <param>
       <key>alias</key>
       <value></value>
-    </param>
-    <param>
-      <key>blocksize</key>
-      <value>96</value>
     </param>
     <param>
       <key>comment</key>
@@ -132,7 +128,7 @@
     </param>
     <param>
       <key>_coordinate</key>
-      <value>(352, 248)</value>
+      <value>(296, 204)</value>
     </param>
     <param>
       <key>_rotation</key>
@@ -140,11 +136,11 @@
     </param>
     <param>
       <key>id</key>
-      <value>blocks_deinterleave_0</value>
+      <value>AlmacFFTKanal_0</value>
     </param>
     <param>
-      <key>type</key>
-      <value>int</value>
+      <key>indeks</key>
+      <value>0</value>
     </param>
     <param>
       <key>maxoutbuf</key>
@@ -154,17 +150,95 @@
       <key>minoutbuf</key>
       <value>0</value>
     </param>
+  </block>
+  <block>
+    <key>AlmacFFTKanal</key>
     <param>
-      <key>num_streams</key>
+      <key>alias</key>
+      <value></value>
+    </param>
+    <param>
+      <key>comment</key>
+      <value></value>
+    </param>
+    <param>
+      <key>affinity</key>
+      <value></value>
+    </param>
+    <param>
+      <key>_enabled</key>
+      <value>True</value>
+    </param>
+    <param>
+      <key>_coordinate</key>
+      <value>(296, 260)</value>
+    </param>
+    <param>
+      <key>_rotation</key>
+      <value>0</value>
+    </param>
+    <param>
+      <key>id</key>
+      <value>AlmacFFTKanal_1</value>
+    </param>
+    <param>
+      <key>indeks</key>
+      <value>1</value>
+    </param>
+    <param>
+      <key>maxoutbuf</key>
+      <value>0</value>
+    </param>
+    <param>
+      <key>minoutbuf</key>
+      <value>0</value>
+    </param>
+  </block>
+  <block>
+    <key>AlmacFFTKanal</key>
+    <param>
+      <key>alias</key>
+      <value></value>
+    </param>
+    <param>
+      <key>comment</key>
+      <value></value>
+    </param>
+    <param>
+      <key>affinity</key>
+      <value></value>
+    </param>
+    <param>
+      <key>_enabled</key>
+      <value>True</value>
+    </param>
+    <param>
+      <key>_coordinate</key>
+      <value>(296, 324)</value>
+    </param>
+    <param>
+      <key>_rotation</key>
+      <value>0</value>
+    </param>
+    <param>
+      <key>id</key>
+      <value>AlmacFFTKanal_2</value>
+    </param>
+    <param>
+      <key>indeks</key>
       <value>2</value>
     </param>
     <param>
-      <key>vlen</key>
-      <value>1</value>
+      <key>maxoutbuf</key>
+      <value>0</value>
+    </param>
+    <param>
+      <key>minoutbuf</key>
+      <value>0</value>
     </param>
   </block>
   <block>
-    <key>blocks_endian_swap</key>
+    <key>AlmacFFTKanal</key>
     <param>
       <key>alias</key>
       <value></value>
@@ -183,7 +257,7 @@
     </param>
     <param>
       <key>_coordinate</key>
-      <value>(512, 80)</value>
+      <value>(296, 388)</value>
     </param>
     <param>
       <key>_rotation</key>
@@ -191,11 +265,11 @@
     </param>
     <param>
       <key>id</key>
-      <value>blocks_endian_swap_0</value>
+      <value>AlmacFFTKanal_3</value>
     </param>
     <param>
-      <key>type</key>
-      <value>s32</value>
+      <key>indeks</key>
+      <value>3</value>
     </param>
     <param>
       <key>maxoutbuf</key>
@@ -207,7 +281,7 @@
     </param>
   </block>
   <block>
-    <key>blocks_endian_swap</key>
+    <key>AlmacFFTKanal</key>
     <param>
       <key>alias</key>
       <value></value>
@@ -226,7 +300,7 @@
     </param>
     <param>
       <key>_coordinate</key>
-      <value>(512, 432)</value>
+      <value>(296, 460)</value>
     </param>
     <param>
       <key>_rotation</key>
@@ -234,11 +308,11 @@
     </param>
     <param>
       <key>id</key>
-      <value>blocks_endian_swap_1</value>
+      <value>AlmacFFTKanal_4</value>
     </param>
     <param>
-      <key>type</key>
-      <value>s32</value>
+      <key>indeks</key>
+      <value>4</value>
     </param>
     <param>
       <key>maxoutbuf</key>
@@ -250,7 +324,7 @@
     </param>
   </block>
   <block>
-    <key>blocks_float_to_complex</key>
+    <key>AlmacFFTKanal</key>
     <param>
       <key>alias</key>
       <value></value>
@@ -269,7 +343,7 @@
     </param>
     <param>
       <key>_coordinate</key>
-      <value>(880, 240)</value>
+      <value>(296, 532)</value>
     </param>
     <param>
       <key>_rotation</key>
@@ -277,7 +351,11 @@
     </param>
     <param>
       <key>id</key>
-      <value>blocks_float_to_complex_0</value>
+      <value>AlmacFFTKanal_5</value>
+    </param>
+    <param>
+      <key>indeks</key>
+      <value>5</value>
     </param>
     <param>
       <key>maxoutbuf</key>
@@ -287,13 +365,9 @@
       <key>minoutbuf</key>
       <value>0</value>
     </param>
-    <param>
-      <key>vlen</key>
-      <value>1</value>
-    </param>
   </block>
   <block>
-    <key>blocks_int_to_float</key>
+    <key>AlmacFFTKanal</key>
     <param>
       <key>alias</key>
       <value></value>
@@ -312,7 +386,7 @@
     </param>
     <param>
       <key>_coordinate</key>
-      <value>(704, 76)</value>
+      <value>(296, 604)</value>
     </param>
     <param>
       <key>_rotation</key>
@@ -320,7 +394,11 @@
     </param>
     <param>
       <key>id</key>
-      <value>blocks_int_to_float_0</value>
+      <value>AlmacFFTKanal_6</value>
+    </param>
+    <param>
+      <key>indeks</key>
+      <value>6</value>
     </param>
     <param>
       <key>maxoutbuf</key>
@@ -330,17 +408,9 @@
       <key>minoutbuf</key>
       <value>0</value>
     </param>
-    <param>
-      <key>scale</key>
-      <value>1</value>
-    </param>
-    <param>
-      <key>vlen</key>
-      <value>1</value>
-    </param>
   </block>
   <block>
-    <key>blocks_int_to_float</key>
+    <key>AlmacFFTKanal</key>
     <param>
       <key>alias</key>
       <value></value>
@@ -359,7 +429,7 @@
     </param>
     <param>
       <key>_coordinate</key>
-      <value>(720, 428)</value>
+      <value>(296, 684)</value>
     </param>
     <param>
       <key>_rotation</key>
@@ -367,7 +437,11 @@
     </param>
     <param>
       <key>id</key>
-      <value>blocks_int_to_float_1</value>
+      <value>AlmacFFTKanal_7</value>
+    </param>
+    <param>
+      <key>indeks</key>
+      <value>7</value>
     </param>
     <param>
       <key>maxoutbuf</key>
@@ -375,112 +449,6 @@
     </param>
     <param>
       <key>minoutbuf</key>
-      <value>0</value>
-    </param>
-    <param>
-      <key>scale</key>
-      <value>1</value>
-    </param>
-    <param>
-      <key>vlen</key>
-      <value>1</value>
-    </param>
-  </block>
-  <block>
-    <key>blocks_keep_m_in_n</key>
-    <param>
-      <key>alias</key>
-      <value></value>
-    </param>
-    <param>
-      <key>comment</key>
-      <value></value>
-    </param>
-    <param>
-      <key>affinity</key>
-      <value></value>
-    </param>
-    <param>
-      <key>_enabled</key>
-      <value>True</value>
-    </param>
-    <param>
-      <key>_coordinate</key>
-      <value>(184, 244)</value>
-    </param>
-    <param>
-      <key>_rotation</key>
-      <value>0</value>
-    </param>
-    <param>
-      <key>id</key>
-      <value>blocks_keep_m_in_n_0</value>
-    </param>
-    <param>
-      <key>m</key>
-      <value>96*2</value>
-    </param>
-    <param>
-      <key>maxoutbuf</key>
-      <value>0</value>
-    </param>
-    <param>
-      <key>minoutbuf</key>
-      <value>0</value>
-    </param>
-    <param>
-      <key>n</key>
-      <value>8*96*2</value>
-    </param>
-    <param>
-      <key>type</key>
-      <value>int</value>
-    </param>
-    <param>
-      <key>offset</key>
-      <value>indeks*96*2</value>
-    </param>
-  </block>
-  <block>
-    <key>parameter</key>
-    <param>
-      <key>alias</key>
-      <value></value>
-    </param>
-    <param>
-      <key>comment</key>
-      <value></value>
-    </param>
-    <param>
-      <key>_enabled</key>
-      <value>True</value>
-    </param>
-    <param>
-      <key>_coordinate</key>
-      <value>(224, 12)</value>
-    </param>
-    <param>
-      <key>_rotation</key>
-      <value>0</value>
-    </param>
-    <param>
-      <key>id</key>
-      <value>indeks</value>
-    </param>
-    <param>
-      <key>label</key>
-      <value>Kanal Indeks</value>
-    </param>
-    <param>
-      <key>short_id</key>
-      <value></value>
-    </param>
-    <param>
-      <key>type</key>
-      <value>intx</value>
-    </param>
-    <param>
-      <key>value</key>
       <value>0</value>
     </param>
   </block>
@@ -496,7 +464,7 @@
     </param>
     <param>
       <key>_coordinate</key>
-      <value>(1096, 236)</value>
+      <value>(536, 204)</value>
     </param>
     <param>
       <key>_rotation</key>
@@ -505,6 +473,307 @@
     <param>
       <key>id</key>
       <value>pad_sink_0</value>
+    </param>
+    <param>
+      <key>type</key>
+      <value>complex</value>
+    </param>
+    <param>
+      <key>label</key>
+      <value>out</value>
+    </param>
+    <param>
+      <key>num_streams</key>
+      <value>1</value>
+    </param>
+    <param>
+      <key>optional</key>
+      <value>False</value>
+    </param>
+    <param>
+      <key>vlen</key>
+      <value>1</value>
+    </param>
+  </block>
+  <block>
+    <key>pad_sink</key>
+    <param>
+      <key>comment</key>
+      <value></value>
+    </param>
+    <param>
+      <key>_enabled</key>
+      <value>True</value>
+    </param>
+    <param>
+      <key>_coordinate</key>
+      <value>(536, 260)</value>
+    </param>
+    <param>
+      <key>_rotation</key>
+      <value>0</value>
+    </param>
+    <param>
+      <key>id</key>
+      <value>pad_sink_1</value>
+    </param>
+    <param>
+      <key>type</key>
+      <value>complex</value>
+    </param>
+    <param>
+      <key>label</key>
+      <value>out</value>
+    </param>
+    <param>
+      <key>num_streams</key>
+      <value>1</value>
+    </param>
+    <param>
+      <key>optional</key>
+      <value>False</value>
+    </param>
+    <param>
+      <key>vlen</key>
+      <value>1</value>
+    </param>
+  </block>
+  <block>
+    <key>pad_sink</key>
+    <param>
+      <key>comment</key>
+      <value></value>
+    </param>
+    <param>
+      <key>_enabled</key>
+      <value>True</value>
+    </param>
+    <param>
+      <key>_coordinate</key>
+      <value>(536, 324)</value>
+    </param>
+    <param>
+      <key>_rotation</key>
+      <value>0</value>
+    </param>
+    <param>
+      <key>id</key>
+      <value>pad_sink_2</value>
+    </param>
+    <param>
+      <key>type</key>
+      <value>complex</value>
+    </param>
+    <param>
+      <key>label</key>
+      <value>out</value>
+    </param>
+    <param>
+      <key>num_streams</key>
+      <value>1</value>
+    </param>
+    <param>
+      <key>optional</key>
+      <value>False</value>
+    </param>
+    <param>
+      <key>vlen</key>
+      <value>1</value>
+    </param>
+  </block>
+  <block>
+    <key>pad_sink</key>
+    <param>
+      <key>comment</key>
+      <value></value>
+    </param>
+    <param>
+      <key>_enabled</key>
+      <value>True</value>
+    </param>
+    <param>
+      <key>_coordinate</key>
+      <value>(536, 388)</value>
+    </param>
+    <param>
+      <key>_rotation</key>
+      <value>0</value>
+    </param>
+    <param>
+      <key>id</key>
+      <value>pad_sink_3</value>
+    </param>
+    <param>
+      <key>type</key>
+      <value>complex</value>
+    </param>
+    <param>
+      <key>label</key>
+      <value>out</value>
+    </param>
+    <param>
+      <key>num_streams</key>
+      <value>1</value>
+    </param>
+    <param>
+      <key>optional</key>
+      <value>False</value>
+    </param>
+    <param>
+      <key>vlen</key>
+      <value>1</value>
+    </param>
+  </block>
+  <block>
+    <key>pad_sink</key>
+    <param>
+      <key>comment</key>
+      <value></value>
+    </param>
+    <param>
+      <key>_enabled</key>
+      <value>True</value>
+    </param>
+    <param>
+      <key>_coordinate</key>
+      <value>(536, 460)</value>
+    </param>
+    <param>
+      <key>_rotation</key>
+      <value>0</value>
+    </param>
+    <param>
+      <key>id</key>
+      <value>pad_sink_4</value>
+    </param>
+    <param>
+      <key>type</key>
+      <value>complex</value>
+    </param>
+    <param>
+      <key>label</key>
+      <value>out</value>
+    </param>
+    <param>
+      <key>num_streams</key>
+      <value>1</value>
+    </param>
+    <param>
+      <key>optional</key>
+      <value>False</value>
+    </param>
+    <param>
+      <key>vlen</key>
+      <value>1</value>
+    </param>
+  </block>
+  <block>
+    <key>pad_sink</key>
+    <param>
+      <key>comment</key>
+      <value></value>
+    </param>
+    <param>
+      <key>_enabled</key>
+      <value>True</value>
+    </param>
+    <param>
+      <key>_coordinate</key>
+      <value>(528, 532)</value>
+    </param>
+    <param>
+      <key>_rotation</key>
+      <value>0</value>
+    </param>
+    <param>
+      <key>id</key>
+      <value>pad_sink_5</value>
+    </param>
+    <param>
+      <key>type</key>
+      <value>complex</value>
+    </param>
+    <param>
+      <key>label</key>
+      <value>out</value>
+    </param>
+    <param>
+      <key>num_streams</key>
+      <value>1</value>
+    </param>
+    <param>
+      <key>optional</key>
+      <value>False</value>
+    </param>
+    <param>
+      <key>vlen</key>
+      <value>1</value>
+    </param>
+  </block>
+  <block>
+    <key>pad_sink</key>
+    <param>
+      <key>comment</key>
+      <value></value>
+    </param>
+    <param>
+      <key>_enabled</key>
+      <value>True</value>
+    </param>
+    <param>
+      <key>_coordinate</key>
+      <value>(528, 604)</value>
+    </param>
+    <param>
+      <key>_rotation</key>
+      <value>0</value>
+    </param>
+    <param>
+      <key>id</key>
+      <value>pad_sink_6</value>
+    </param>
+    <param>
+      <key>type</key>
+      <value>complex</value>
+    </param>
+    <param>
+      <key>label</key>
+      <value>out</value>
+    </param>
+    <param>
+      <key>num_streams</key>
+      <value>1</value>
+    </param>
+    <param>
+      <key>optional</key>
+      <value>False</value>
+    </param>
+    <param>
+      <key>vlen</key>
+      <value>1</value>
+    </param>
+  </block>
+  <block>
+    <key>pad_sink</key>
+    <param>
+      <key>comment</key>
+      <value></value>
+    </param>
+    <param>
+      <key>_enabled</key>
+      <value>True</value>
+    </param>
+    <param>
+      <key>_coordinate</key>
+      <value>(528, 684)</value>
+    </param>
+    <param>
+      <key>_rotation</key>
+      <value>0</value>
+    </param>
+    <param>
+      <key>id</key>
+      <value>pad_sink_7</value>
     </param>
     <param>
       <key>type</key>
@@ -539,7 +808,7 @@
     </param>
     <param>
       <key>_coordinate</key>
-      <value>(16, 260)</value>
+      <value>(88, 428)</value>
     </param>
     <param>
       <key>_rotation</key>
@@ -571,56 +840,98 @@
     </param>
   </block>
   <connection>
-    <source_block_id>blocks_deinterleave_0</source_block_id>
-    <sink_block_id>blocks_endian_swap_0</sink_block_id>
-    <source_key>0</source_key>
-    <sink_key>0</sink_key>
-  </connection>
-  <connection>
-    <source_block_id>blocks_deinterleave_0</source_block_id>
-    <sink_block_id>blocks_endian_swap_1</sink_block_id>
-    <source_key>1</source_key>
-    <sink_key>0</sink_key>
-  </connection>
-  <connection>
-    <source_block_id>blocks_endian_swap_0</source_block_id>
-    <sink_block_id>blocks_int_to_float_0</sink_block_id>
-    <source_key>0</source_key>
-    <sink_key>0</sink_key>
-  </connection>
-  <connection>
-    <source_block_id>blocks_endian_swap_1</source_block_id>
-    <sink_block_id>blocks_int_to_float_1</sink_block_id>
-    <source_key>0</source_key>
-    <sink_key>0</sink_key>
-  </connection>
-  <connection>
-    <source_block_id>blocks_float_to_complex_0</source_block_id>
+    <source_block_id>AlmacFFTKanal_0</source_block_id>
     <sink_block_id>pad_sink_0</sink_block_id>
     <source_key>0</source_key>
     <sink_key>0</sink_key>
   </connection>
   <connection>
-    <source_block_id>blocks_int_to_float_0</source_block_id>
-    <sink_block_id>blocks_float_to_complex_0</sink_block_id>
+    <source_block_id>AlmacFFTKanal_1</source_block_id>
+    <sink_block_id>pad_sink_1</sink_block_id>
     <source_key>0</source_key>
     <sink_key>0</sink_key>
   </connection>
   <connection>
-    <source_block_id>blocks_int_to_float_1</source_block_id>
-    <sink_block_id>blocks_float_to_complex_0</sink_block_id>
+    <source_block_id>AlmacFFTKanal_2</source_block_id>
+    <sink_block_id>pad_sink_2</sink_block_id>
     <source_key>0</source_key>
-    <sink_key>1</sink_key>
+    <sink_key>0</sink_key>
   </connection>
   <connection>
-    <source_block_id>blocks_keep_m_in_n_0</source_block_id>
-    <sink_block_id>blocks_deinterleave_0</sink_block_id>
+    <source_block_id>AlmacFFTKanal_3</source_block_id>
+    <sink_block_id>pad_sink_3</sink_block_id>
+    <source_key>0</source_key>
+    <sink_key>0</sink_key>
+  </connection>
+  <connection>
+    <source_block_id>AlmacFFTKanal_4</source_block_id>
+    <sink_block_id>pad_sink_4</sink_block_id>
+    <source_key>0</source_key>
+    <sink_key>0</sink_key>
+  </connection>
+  <connection>
+    <source_block_id>AlmacFFTKanal_5</source_block_id>
+    <sink_block_id>pad_sink_5</sink_block_id>
+    <source_key>0</source_key>
+    <sink_key>0</sink_key>
+  </connection>
+  <connection>
+    <source_block_id>AlmacFFTKanal_6</source_block_id>
+    <sink_block_id>pad_sink_6</sink_block_id>
+    <source_key>0</source_key>
+    <sink_key>0</sink_key>
+  </connection>
+  <connection>
+    <source_block_id>AlmacFFTKanal_7</source_block_id>
+    <sink_block_id>pad_sink_7</sink_block_id>
     <source_key>0</source_key>
     <sink_key>0</sink_key>
   </connection>
   <connection>
     <source_block_id>pad_source_0</source_block_id>
-    <sink_block_id>blocks_keep_m_in_n_0</sink_block_id>
+    <sink_block_id>AlmacFFTKanal_0</sink_block_id>
+    <source_key>0</source_key>
+    <sink_key>0</sink_key>
+  </connection>
+  <connection>
+    <source_block_id>pad_source_0</source_block_id>
+    <sink_block_id>AlmacFFTKanal_1</sink_block_id>
+    <source_key>0</source_key>
+    <sink_key>0</sink_key>
+  </connection>
+  <connection>
+    <source_block_id>pad_source_0</source_block_id>
+    <sink_block_id>AlmacFFTKanal_2</sink_block_id>
+    <source_key>0</source_key>
+    <sink_key>0</sink_key>
+  </connection>
+  <connection>
+    <source_block_id>pad_source_0</source_block_id>
+    <sink_block_id>AlmacFFTKanal_3</sink_block_id>
+    <source_key>0</source_key>
+    <sink_key>0</sink_key>
+  </connection>
+  <connection>
+    <source_block_id>pad_source_0</source_block_id>
+    <sink_block_id>AlmacFFTKanal_4</sink_block_id>
+    <source_key>0</source_key>
+    <sink_key>0</sink_key>
+  </connection>
+  <connection>
+    <source_block_id>pad_source_0</source_block_id>
+    <sink_block_id>AlmacFFTKanal_5</sink_block_id>
+    <source_key>0</source_key>
+    <sink_key>0</sink_key>
+  </connection>
+  <connection>
+    <source_block_id>pad_source_0</source_block_id>
+    <sink_block_id>AlmacFFTKanal_6</sink_block_id>
+    <source_key>0</source_key>
+    <sink_key>0</sink_key>
+  </connection>
+  <connection>
+    <source_block_id>pad_source_0</source_block_id>
+    <sink_block_id>AlmacFFTKanal_7</sink_block_id>
     <source_key>0</source_key>
     <sink_key>0</sink_key>
   </connection>
