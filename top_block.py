@@ -2,9 +2,8 @@
 # -*- coding: utf-8 -*-
 ##################################################
 # GNU Radio Python Flow Graph
-# Title: Almac FFT Verisi
-# Description: Almactan gelen 1024 point FFT verisinden spektrum hesaplar
-# Generated: Tue Jan  1 14:51:32 2019
+# Title: Top Block
+# Generated: Sat Jan  5 17:32:27 2019
 ##################################################
 
 if __name__ == '__main__':
@@ -17,7 +16,12 @@ if __name__ == '__main__':
         except:
             print "Warning: failed to XInitThreads()"
 
+import os
+import sys
+sys.path.append(os.environ.get('GRC_HIER_PATH', os.path.expanduser('~/.grc_gnuradio')))
+
 from PyQt4 import Qt
+from SekizKanalFFT import SekizKanalFFT  # grc-generated hier_block
 from gnuradio import blocks
 from gnuradio import eng_notation
 from gnuradio import gr
@@ -26,15 +30,14 @@ from gnuradio.eng_option import eng_option
 from gnuradio.filter import firdes
 from optparse import OptionParser
 import sip
-import sys
 
 
 class top_block(gr.top_block, Qt.QWidget):
 
     def __init__(self):
-        gr.top_block.__init__(self, "Almac FFT Verisi")
+        gr.top_block.__init__(self, "Top Block")
         Qt.QWidget.__init__(self)
-        self.setWindowTitle("Almac FFT Verisi")
+        self.setWindowTitle("Top Block")
         try:
             self.setWindowIcon(Qt.QIcon.fromTheme('gnuradio-grc'))
         except:
@@ -63,20 +66,20 @@ class top_block(gr.top_block, Qt.QWidget):
         # Blocks
         ##################################################
         self.qtgui_time_sink_x_0 = qtgui.time_sink_f(
-        	96, #size
+        	1, #size
         	samp_rate, #samp_rate
         	"", #name
-        	1 #number of inputs
+        	3 #number of inputs
         )
         self.qtgui_time_sink_x_0.set_update_time(0.10)
-        self.qtgui_time_sink_x_0.set_y_axis(20, 150)
+        self.qtgui_time_sink_x_0.set_y_axis(-1, 1)
         
         self.qtgui_time_sink_x_0.set_y_label("Amplitude", "")
         
         self.qtgui_time_sink_x_0.enable_tags(-1, True)
         self.qtgui_time_sink_x_0.set_trigger_mode(qtgui.TRIG_MODE_FREE, qtgui.TRIG_SLOPE_POS, 0.0, 0, 0, "")
         self.qtgui_time_sink_x_0.enable_autoscale(False)
-        self.qtgui_time_sink_x_0.enable_grid(True)
+        self.qtgui_time_sink_x_0.enable_grid(False)
         self.qtgui_time_sink_x_0.enable_control_panel(False)
         
         if not True:
@@ -95,7 +98,7 @@ class top_block(gr.top_block, Qt.QWidget):
         alphas = [1.0, 1.0, 1.0, 1.0, 1.0,
                   1.0, 1.0, 1.0, 1.0, 1.0]
         
-        for i in xrange(1):
+        for i in xrange(3):
             if len(labels[i]) == 0:
                 self.qtgui_time_sink_x_0.set_line_label(i, "Data {0}".format(i))
             else:
@@ -108,31 +111,130 @@ class top_block(gr.top_block, Qt.QWidget):
         
         self._qtgui_time_sink_x_0_win = sip.wrapinstance(self.qtgui_time_sink_x_0.pyqwidget(), Qt.QWidget)
         self.top_layout.addWidget(self._qtgui_time_sink_x_0_win)
-        self.blocks_throttle_0 = blocks.throttle(gr.sizeof_int*1, samp_rate,True)
-        self.blocks_nlog10_ff_0 = blocks.nlog10_ff(10, 1, 0)
-        self.blocks_int_to_float_1 = blocks.int_to_float(1, 1)
-        self.blocks_int_to_float_0 = blocks.int_to_float(1, 1)
-        self.blocks_float_to_complex_0 = blocks.float_to_complex(1)
-        self.blocks_file_source_0 = blocks.file_source(gr.sizeof_int*1, "/home/murat/git/murat-sever/gr-work/fft_10MCenterFreq_AM440HzTone.bin", True)
-        self.blocks_endian_swap_1 = blocks.endian_swap(4)
-        self.blocks_endian_swap_0 = blocks.endian_swap(4)
-        self.blocks_deinterleave_0 = blocks.deinterleave(gr.sizeof_int*1, 96)
-        self.blocks_complex_to_mag_squared_0 = blocks.complex_to_mag_squared(1)
+        self.qtgui_number_sink_0_0 = qtgui.number_sink(
+            gr.sizeof_float,
+            0,
+            qtgui.NUM_GRAPH_HORIZ,
+            2
+        )
+        self.qtgui_number_sink_0_0.set_update_time(0.10)
+        self.qtgui_number_sink_0_0.set_title("")
+        
+        labels = ["", "", "", "", "",
+                  "", "", "", "", ""]
+        units = ["", "", "", "", "",
+                 "", "", "", "", ""]
+        colors = [("black", "black"), ("black", "black"), ("black", "black"), ("black", "black"), ("black", "black"),
+                  ("black", "black"), ("black", "black"), ("black", "black"), ("black", "black"), ("black", "black")]
+        factor = [1, 1, 1, 1, 1,
+                  1, 1, 1, 1, 1]
+        for i in xrange(2):
+            self.qtgui_number_sink_0_0.set_min(i, -1)
+            self.qtgui_number_sink_0_0.set_max(i, 1)
+            self.qtgui_number_sink_0_0.set_color(i, colors[i][0], colors[i][1])
+            if len(labels[i]) == 0:
+                self.qtgui_number_sink_0_0.set_label(i, "Data {0}".format(i))
+            else:
+                self.qtgui_number_sink_0_0.set_label(i, labels[i])
+            self.qtgui_number_sink_0_0.set_unit(i, units[i])
+            self.qtgui_number_sink_0_0.set_factor(i, factor[i])
+        
+        self.qtgui_number_sink_0_0.enable_autoscale(False)
+        self._qtgui_number_sink_0_0_win = sip.wrapinstance(self.qtgui_number_sink_0_0.pyqwidget(), Qt.QWidget)
+        self.top_layout.addWidget(self._qtgui_number_sink_0_0_win)
+        self.qtgui_number_sink_0 = qtgui.number_sink(
+            gr.sizeof_float,
+            0,
+            qtgui.NUM_GRAPH_HORIZ,
+            4
+        )
+        self.qtgui_number_sink_0.set_update_time(0.10)
+        self.qtgui_number_sink_0.set_title("")
+        
+        labels = ["", "", "", "", "",
+                  "", "", "", "", ""]
+        units = ["", "", "", "", "",
+                 "", "", "", "", ""]
+        colors = [("black", "black"), ("black", "black"), ("black", "black"), ("black", "black"), ("black", "black"),
+                  ("black", "black"), ("black", "black"), ("black", "black"), ("black", "black"), ("black", "black")]
+        factor = [1, 1, 1, 1, 1,
+                  1, 1, 1, 1, 1]
+        for i in xrange(4):
+            self.qtgui_number_sink_0.set_min(i, -1)
+            self.qtgui_number_sink_0.set_max(i, 1)
+            self.qtgui_number_sink_0.set_color(i, colors[i][0], colors[i][1])
+            if len(labels[i]) == 0:
+                self.qtgui_number_sink_0.set_label(i, "Data {0}".format(i))
+            else:
+                self.qtgui_number_sink_0.set_label(i, labels[i])
+            self.qtgui_number_sink_0.set_unit(i, units[i])
+            self.qtgui_number_sink_0.set_factor(i, factor[i])
+        
+        self.qtgui_number_sink_0.enable_autoscale(False)
+        self._qtgui_number_sink_0_win = sip.wrapinstance(self.qtgui_number_sink_0.pyqwidget(), Qt.QWidget)
+        self.top_layout.addWidget(self._qtgui_number_sink_0_win)
+        self.blocks_udp_source_0 = blocks.udp_source(gr.sizeof_int*1, "18.2.26.45", 20000, 768, True)
+        self.blocks_null_sink_3 = blocks.null_sink(gr.sizeof_gr_complex*1)
+        self.blocks_null_sink_2 = blocks.null_sink(gr.sizeof_gr_complex*1)
+        self.blocks_null_sink_1 = blocks.null_sink(gr.sizeof_gr_complex*1)
+        self.blocks_null_sink_0 = blocks.null_sink(gr.sizeof_gr_complex*1)
+        self.blocks_multiply_conjugate_cc_0_0_0 = blocks.multiply_conjugate_cc(1)
+        self.blocks_multiply_conjugate_cc_0_0 = blocks.multiply_conjugate_cc(1)
+        self.blocks_multiply_conjugate_cc_0 = blocks.multiply_conjugate_cc(1)
+        self.blocks_keep_m_in_n_0_0_0_0 = blocks.keep_m_in_n(gr.sizeof_gr_complex, 1, 96, 38)
+        self.blocks_keep_m_in_n_0_0_0 = blocks.keep_m_in_n(gr.sizeof_gr_complex, 1, 96, 38)
+        self.blocks_keep_m_in_n_0_0 = blocks.keep_m_in_n(gr.sizeof_gr_complex, 1, 96, 38)
+        self.blocks_keep_m_in_n_0 = blocks.keep_m_in_n(gr.sizeof_gr_complex, 1, 96, 38)
+        self.blocks_file_sink_0 = blocks.file_sink(gr.sizeof_int*1, "fft_yon_sim_10Mcenter_30degree.bin", False)
+        self.blocks_file_sink_0.set_unbuffered(False)
+        self.blocks_complex_to_mag_3 = blocks.complex_to_mag(1)
+        self.blocks_complex_to_mag_2 = blocks.complex_to_mag(1)
+        self.blocks_complex_to_mag_1 = blocks.complex_to_mag(1)
+        self.blocks_complex_to_mag_0 = blocks.complex_to_mag(1)
+        self.blocks_complex_to_arg_0_1_0 = blocks.complex_to_arg(1)
+        self.blocks_complex_to_arg_0_1 = blocks.complex_to_arg(1)
+        self.blocks_complex_to_arg_0_0_0 = blocks.complex_to_arg(1)
+        self.blocks_complex_to_arg_0_0 = blocks.complex_to_arg(1)
+        self.blocks_complex_to_arg_0 = blocks.complex_to_arg(1)
+        self.SekizKanalFFT_0 = SekizKanalFFT()
 
         ##################################################
         # Connections
         ##################################################
-        self.connect((self.blocks_complex_to_mag_squared_0, 0), (self.blocks_nlog10_ff_0, 0))    
-        self.connect((self.blocks_deinterleave_0, 0), (self.blocks_endian_swap_0, 0))    
-        self.connect((self.blocks_deinterleave_0, 1), (self.blocks_endian_swap_1, 0))    
-        self.connect((self.blocks_endian_swap_0, 0), (self.blocks_int_to_float_0, 0))    
-        self.connect((self.blocks_endian_swap_1, 0), (self.blocks_int_to_float_1, 0))    
-        self.connect((self.blocks_file_source_0, 0), (self.blocks_throttle_0, 0))    
-        self.connect((self.blocks_float_to_complex_0, 0), (self.blocks_complex_to_mag_squared_0, 0))    
-        self.connect((self.blocks_int_to_float_0, 0), (self.blocks_float_to_complex_0, 0))    
-        self.connect((self.blocks_int_to_float_1, 0), (self.blocks_float_to_complex_0, 1))    
-        self.connect((self.blocks_nlog10_ff_0, 0), (self.qtgui_time_sink_x_0, 0))    
-        self.connect((self.blocks_throttle_0, 0), (self.blocks_deinterleave_0, 0))    
+        self.connect((self.SekizKanalFFT_0, 0), (self.blocks_keep_m_in_n_0, 0))    
+        self.connect((self.SekizKanalFFT_0, 1), (self.blocks_keep_m_in_n_0_0, 0))    
+        self.connect((self.SekizKanalFFT_0, 2), (self.blocks_keep_m_in_n_0_0_0, 0))    
+        self.connect((self.SekizKanalFFT_0, 3), (self.blocks_keep_m_in_n_0_0_0_0, 0))    
+        self.connect((self.SekizKanalFFT_0, 4), (self.blocks_null_sink_0, 0))    
+        self.connect((self.SekizKanalFFT_0, 6), (self.blocks_null_sink_1, 0))    
+        self.connect((self.SekizKanalFFT_0, 7), (self.blocks_null_sink_2, 0))    
+        self.connect((self.SekizKanalFFT_0, 5), (self.blocks_null_sink_3, 0))    
+        self.connect((self.blocks_complex_to_arg_0, 0), (self.qtgui_time_sink_x_0, 0))    
+        self.connect((self.blocks_complex_to_arg_0_0, 0), (self.qtgui_time_sink_x_0, 1))    
+        self.connect((self.blocks_complex_to_arg_0_0_0, 0), (self.qtgui_time_sink_x_0, 2))    
+        self.connect((self.blocks_complex_to_arg_0_1, 0), (self.qtgui_number_sink_0_0, 0))    
+        self.connect((self.blocks_complex_to_arg_0_1_0, 0), (self.qtgui_number_sink_0_0, 1))    
+        self.connect((self.blocks_complex_to_mag_0, 0), (self.qtgui_number_sink_0, 0))    
+        self.connect((self.blocks_complex_to_mag_1, 0), (self.qtgui_number_sink_0, 1))    
+        self.connect((self.blocks_complex_to_mag_2, 0), (self.qtgui_number_sink_0, 2))    
+        self.connect((self.blocks_complex_to_mag_3, 0), (self.qtgui_number_sink_0, 3))    
+        self.connect((self.blocks_keep_m_in_n_0, 0), (self.blocks_complex_to_arg_0_1, 0))    
+        self.connect((self.blocks_keep_m_in_n_0, 0), (self.blocks_complex_to_mag_0, 0))    
+        self.connect((self.blocks_keep_m_in_n_0, 0), (self.blocks_multiply_conjugate_cc_0, 0))    
+        self.connect((self.blocks_keep_m_in_n_0, 0), (self.blocks_multiply_conjugate_cc_0_0, 0))    
+        self.connect((self.blocks_keep_m_in_n_0, 0), (self.blocks_multiply_conjugate_cc_0_0_0, 0))    
+        self.connect((self.blocks_keep_m_in_n_0_0, 0), (self.blocks_complex_to_arg_0_1_0, 0))    
+        self.connect((self.blocks_keep_m_in_n_0_0, 0), (self.blocks_complex_to_mag_1, 0))    
+        self.connect((self.blocks_keep_m_in_n_0_0, 0), (self.blocks_multiply_conjugate_cc_0, 1))    
+        self.connect((self.blocks_keep_m_in_n_0_0_0, 0), (self.blocks_complex_to_mag_2, 0))    
+        self.connect((self.blocks_keep_m_in_n_0_0_0, 0), (self.blocks_multiply_conjugate_cc_0_0, 1))    
+        self.connect((self.blocks_keep_m_in_n_0_0_0_0, 0), (self.blocks_complex_to_mag_3, 0))    
+        self.connect((self.blocks_keep_m_in_n_0_0_0_0, 0), (self.blocks_multiply_conjugate_cc_0_0_0, 1))    
+        self.connect((self.blocks_multiply_conjugate_cc_0, 0), (self.blocks_complex_to_arg_0, 0))    
+        self.connect((self.blocks_multiply_conjugate_cc_0_0, 0), (self.blocks_complex_to_arg_0_0, 0))    
+        self.connect((self.blocks_multiply_conjugate_cc_0_0_0, 0), (self.blocks_complex_to_arg_0_0_0, 0))    
+        self.connect((self.blocks_udp_source_0, 0), (self.SekizKanalFFT_0, 0))    
+        self.connect((self.blocks_udp_source_0, 0), (self.blocks_file_sink_0, 0))    
 
     def closeEvent(self, event):
         self.settings = Qt.QSettings("GNU Radio", "top_block")
@@ -145,7 +247,6 @@ class top_block(gr.top_block, Qt.QWidget):
 
     def set_samp_rate(self, samp_rate):
         self.samp_rate = samp_rate
-        self.blocks_throttle_0.set_sample_rate(self.samp_rate)
         self.qtgui_time_sink_x_0.set_samp_rate(self.samp_rate)
 
 
