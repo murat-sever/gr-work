@@ -1,0 +1,18 @@
+// numpy load et
+import numpy as np
+
+// dosyadan int32 olarak oku
+fft8=np.fromfile('fft_yon_sim_10Mcenter_30degree.bin', 'int32', -1, '')
+
+// dosyadan float32 olarak oku
+fft8=np.fromfile('kanal0fft.bin', 'float32', -1, '')
+
+// real interleaved to complex donusum icin
+// yani cift degerler (real) + tek degerler (imag)
+fark_comp=fark[::2]+1j*fark[1::2]
+
+// faz icin
+np.angle(fark_comp)
+
+
+
