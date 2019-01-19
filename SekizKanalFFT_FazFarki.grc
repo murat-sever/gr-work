@@ -351,7 +351,7 @@
     </param>
     <param>
       <key>file</key>
-      <value>faz0.bin</value>
+      <value>/home/murat/temp/faz0.bin</value>
     </param>
     <param>
       <key>_coordinate</key>
@@ -402,7 +402,7 @@
     </param>
     <param>
       <key>file</key>
-      <value>genlik0.bin</value>
+      <value>/home/murat/temp/genlik0.bin</value>
     </param>
     <param>
       <key>_coordinate</key>
@@ -453,7 +453,7 @@
     </param>
     <param>
       <key>file</key>
-      <value>fazfarki.bin</value>
+      <value>/home/murat/temp/fazfarki.bin</value>
     </param>
     <param>
       <key>_coordinate</key>
@@ -504,7 +504,7 @@
     </param>
     <param>
       <key>file</key>
-      <value>fft0.bin</value>
+      <value>/home/murat/temp/fft0.bin</value>
     </param>
     <param>
       <key>_coordinate</key>
@@ -551,7 +551,7 @@
     </param>
     <param>
       <key>file</key>
-      <value>/home/nvidia/gitDir/gr-work/fft_yon_sim_10Mcenter_30degree.bin</value>
+      <value>/home/murat/git/murat-sever/gr-work/fft_yon_sim_10Mcenter_30degree.bin</value>
     </param>
     <param>
       <key>_coordinate</key>
